@@ -1,0 +1,32 @@
+= Rails Starter Template
+
+Rails starter app template complete with the following:
+
+=== Devise
+
+* configured to add <tt>first_name</tt> and <tt>last_name</tt> as extra parameters on <tt>User</tt>
+* All necessary controller actions and views configured
+
+{Click Here For More Information About Devise}[https://github.com/plataformatec/devise]
+
+=== Bootstrap
+
+* <tt>bootstrap.min.js</tt> and <tt>bootstrap.min.css</tt> are include, required properly, and ready to use immediately
+
+* Bootstrap Glyphicons are already in place in the proper directory and included in the <tt>application.css</tt> file correctly.
+
+{Click Here For More Information About Bootstrap}[http://getbootstrap.com/components/]
+
+=== Simple_Form
+
+* Simple Form Gem is installed with base configurations, and already applied to all Devise forms with the proper Bootstrap form classes and format.
+
+{Click Here For More Information About Simple Form}[https://github.com/plataformatec/simple_form]
+
+=== Active_Admin
+
+* Active Admin gem installed and configured already to include a list of all users within the admin dashboard
+
+{Click Here For More Information About Active Admin}[https://github.com/activeadmin/activeadmin]
+
+
