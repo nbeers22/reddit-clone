@@ -1,29 +1,60 @@
-<p id="notice"><%= notice %></p>
+<% if current_user %>
 
-<h1>Listing Links</h1>
+  <h1>Listing Links</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
+  <table cellspacing="5" cellpadding="5">
+    <thead>
       <tr>
-        <td><%= link.title %></td>
-        <td><%= link.url %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Url</th>
+        <th>User</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.title %></td>
+          <td><%= link.url %></td>
+          <td><%= link.user.first_name.titleize %></td>
+          <% if link.user == current_user %>
+            <td><%= link_to 'Show', link %></td>
+            <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Link', new_link_path %>
+  <br>
+
+  <%= link_to 'New Link', new_link_path %>
+<% else %>
+  <p>To submit a link, please <%= link_to 'Log in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></p>
+  <h1>Links</h1>
+
+  <table cellspacing="5" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th>User</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.title %></td>
+          <td><%= link.url %></td>
+          <td><%= link.user.first_name.titleize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
