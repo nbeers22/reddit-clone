@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :links
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   root to: 'links#index'
 
   resources :links do
+    resources :comments
     member do
       put 'like', to: 'links#upvote'
       put 'dislike', to: 'links#downvote'

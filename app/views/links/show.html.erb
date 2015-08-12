@@ -9,6 +9,24 @@
   <strong>Url:</strong>
   <a href="<%= Link.add_http(@link.url) %>" target="_blank"><%= Link.add_http(@link.url) %></a>
 </p>
+<p>
+  <% if @link.user == current_user %>
+    <%= link_to 'Edit Link', edit_link_path(@link) %> |
+  <% end %>
+  <%= link_to 'Back', links_path %>
+</p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<h3 class="comments_title">
+  <%= @link.comments.count %> Comments
+</h3>
+ 
+<div id="comments">
+  <%= render :partial => @link.comments %>
+</div>
+<%= simple_form_for [@link, Comment.new] do |f| %>
+  <div class="field col-xs-12 col-sm-6">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <br>
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>
