@@ -7,7 +7,7 @@
 
 <p>
   <strong>Url:</strong>
-  <%= @link.url %>
+  <a href="<%= Link.add_http(@link.url) %>" target="_blank"><%= Link.add_http(@link.url) %></a>
 </p>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
