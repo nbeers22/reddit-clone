@@ -14,9 +14,15 @@
 
     <tbody>
       <% @links.each do |link| %>
+        <% link.url.downcase! %>
+        <% if link.url.include?('http://') %>
+          <% link.url %>
+        <% else %>
+          <% link.url = 'http://' + link.url %>
+        <% end %>
         <tr>
           <td><%= link.title %></td>
-          <td><%= link.url %></td>
+          <td><a href="<%= link.url %>" target="_blank"><%= link.url %></a></td>
           <td><%= link.user.first_name.titleize %></td>
           <% if link.user == current_user %>
             <td><%= link_to 'Show', link %></td>
