@@ -1,0 +1,40 @@
+<table cellspacing="5" cellpadding="5" class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Title</th>
+        <th>Url</th>
+        <th>User</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td>
+            <div class="btn-group">
+                <%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-sm" do %>
+                
+                <span class="upvote">Up</span>
+                <%= link.get_upvotes.size %>
+              <% end %>
+              <%= link_to dislike_link_path(link), method: :put, class: "btn btn-danger btn-sm" do %>
+                <span class="upvote">Down</span>
+                <%= link.get_downvotes.size %>
+              <% end %>
+            </div>
+          </td>
+          <td><%= link.title.titleize %></td>
+          <td><a href="<%= Link.add_http(link.url) %>" target="_blank"><%= Link.add_http(link.url) %></a></td>
+          <td><%= link.user.first_name.titleize %></td>
+          <% if link.user == current_user %>
+            <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <td><%= button_to 'Destroy', link, method: :delete, class: 'btn btn-primary',data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
