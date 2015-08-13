@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812183420) do
+ActiveRecord::Schema.define(version: 20150813142631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,11 +63,19 @@ ActiveRecord::Schema.define(version: 20150812183420) do
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
 
+  add_index "links", ["cached_votes_down"], name: "index_links_on_cached_votes_down", using: :btree
+  add_index "links", ["cached_votes_score"], name: "index_links_on_cached_votes_score", using: :btree
+  add_index "links", ["cached_votes_total"], name: "index_links_on_cached_votes_total", using: :btree
+  add_index "links", ["cached_votes_up"], name: "index_links_on_cached_votes_up", using: :btree
   add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

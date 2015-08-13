@@ -11,7 +11,7 @@ class LinksController < InheritedResources::Base
 	end
 
 	def index
-		@links = Link.all.order(created_at: :desc)
+		@links = Link.all.order(cached_votes_score: :desc)
 	end
 
 	def upvote
