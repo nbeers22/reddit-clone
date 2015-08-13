@@ -22354,3 +22354,1526 @@ Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 a
 
 
 Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-12 16:28:59 -0400
+
+
+Started GET "/links/8" for ::1 at 2015-08-13 09:41:16 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mLink Load (0.5ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 8]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (3.9ms)
+  Rendered links/show.html.erb within layouts/application (37.5ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 409ms (Views: 398.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/links/8/comments" for ::1 at 2015-08-13 09:41:48 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jXNaWgyl0EH0hJObqUXM2EZiM7VQnYnPNVUfwOkjX3kBlNY/pGFqgcSreeuw9kdVZ0RRFxV5ckNd02BbUCHA2A==", "comment"=>{"body"=>"ythrthrt"}, "commit"=>"Add Comment", "link_id"=>"8"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (16.7ms)[0m  [1mINSERT INTO "comments" ("body", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "ythrthrt"], ["link_id", 8], ["created_at", "2015-08-13 13:41:48.196532"], ["updated_at", "2015-08-13 13:41:48.196532"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "comments" SET "user_id" = $1, "updated_at" = $2 WHERE "comments"."id" = $3  [["user_id", 2], ["updated_at", "2015-08-13 13:41:48.216442"], ["id", 8]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/links/8
+Completed 302 Found in 26ms (ActiveRecord: 18.8ms)
+
+
+Started GET "/links/8" for ::1 at 2015-08-13 09:41:48 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 8]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered links/show.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 233ms (Views: 230.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 09:41:48 -0400
+
+
+Started GET "/links/8/comments/8/edit" for ::1 at 2015-08-13 09:41:56 -0400
+Processing by CommentsController#edit as HTML
+  Parameters: {"link_id"=>"8", "id"=>"8"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered comments/_form.html.erb (0.7ms)
+  Rendered comments/edit.html.erb within layouts/application (14.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered layouts/_navbar.html.erb (1.6ms)
+Completed 200 OK in 260ms (Views: 258.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/comments/8" for ::1 at 2015-08-13 09:41:59 -0400
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PL9WuKCwE99P84ZHy7FNxxE5QIMJXYzTyl7kSPeDud6wWNrdCHSpH3/cbDfSAsZKMB8iIUy5d1+i2JvTToEmfw==", "comment"=>{"body"=>"ythrthrtwect vetwv yrewtgv ertv grtev "}, "commit"=>"Submit", "id"=>"8"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "comments" SET "body" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["body", "ythrthrtwect vetwv yrewtgv ertv grtev "], ["updated_at", "2015-08-13 13:41:59.500032"], ["id", 8]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 8]]
+Redirected to http://localhost:3000/links/8
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/links/8" for ::1 at 2015-08-13 09:41:59 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 8]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered links/show.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 249ms (Views: 246.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 09:41:59 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 09:42:00 -0400
+
+
+Started GET "/links" for ::1 at 2015-08-13 09:42:15 -0400
+Processing by LinksController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mLink Load (0.6ms)[0m  [1mSELECT "links".* FROM "links"  ORDER BY "links"."created_at" DESC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 8], ["votable_type", "Link"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 8], ["votable_type", "Link"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 8]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 7], ["votable_type", "Link"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 7], ["votable_type", "Link"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 6], ["votable_type", "Link"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 6], ["votable_type", "Link"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 5], ["votable_type", "Link"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 5], ["votable_type", "Link"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 4], ["votable_type", "Link"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 4], ["votable_type", "Link"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 3], ["votable_type", "Link"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 3], ["votable_type", "Link"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered links/_links.html.erb (24.8ms)
+  Rendered links/index.html.erb within layouts/application (31.6ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 280ms (Views: 275.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 09:42:18 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered links/show.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 227ms (Views: 225.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/links/3/comments" for ::1 at 2015-08-13 09:42:21 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+IS8f6Fx4mUzObLGRtHNvTnZvUpWzAOauhHyorEODA10YzAaCbVYpQMWWLZfYkYwGP/f6BMo+BbSl405CAyTrA==", "comment"=>{"body"=>"crsfref"}, "commit"=>"Add Comment", "link_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("body", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "crsfref"], ["link_id", 3], ["created_at", "2015-08-13 13:42:21.563875"], ["updated_at", "2015-08-13 13:42:21.563875"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "comments" SET "user_id" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["user_id", 2], ["updated_at", "2015-08-13 13:42:21.565797"], ["id", 9]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/links/3
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 09:42:21 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.1ms)
+  Rendered links/show.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 250ms (Views: 248.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 09:42:21 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 09:42:22 -0400
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 09:59:24 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (7.8ms)
+  Rendered links/show.html.erb within layouts/application (58.4ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 447ms (Views: 434.5ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 09:59:25 -0400
+
+
+Started PUT "/links/3/comments/9/like" for ::1 at 2015-08-13 09:59:30 -0400
+Processing by CommentsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"65uoKWjvyznwQLixXjS6/uCFHnnW12ulu8WLW9O6cHxnfCRMwCtx+cBvUsFHhzFzwaN825MzkCnTQ/TAarjv3Q==", "link_id"=>"3", "id"=>"9"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."voter_id" = $3 AND "votes"."voter_type" = $4 AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["votable_id", 9], ["votable_type", "Comment"], ["voter_id", 2], ["voter_type", "User"], ["vote_flag", "t"], ["vote_weight", 1], ["created_at", "2015-08-13 13:59:30.529480"], ["updated_at", "2015-08-13 13:59:30.529480"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/links/3
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 09:59:30 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (3.1ms)
+  Rendered links/show.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 247ms (Views: 244.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 09:59:30 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 09:59:31 -0400
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 10:00:01 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (4.2ms)
+  Rendered links/show.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 253ms (Views: 251.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 10:00:01 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 10:00:02 -0400
+
+
+Started POST "/links/3/comments" for ::1 at 2015-08-13 10:00:23 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZHNh3KGhCTg5m4K/qYjKmwm4mC0SWitUYq/s5garaY/olO25CWWz+Am0aM+wO0EWKJ76j1e+0NgKKZN9v6n2Lg==", "comment"=>{"body"=>"helloi"}, "commit"=>"Add Comment", "link_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("body", "link_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "helloi"], ["link_id", 3], ["created_at", "2015-08-13 14:00:23.103180"], ["updated_at", "2015-08-13 14:00:23.103180"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "comments" SET "user_id" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["user_id", 2], ["updated_at", "2015-08-13 14:00:23.105774"], ["id", 10]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/links/3
+Completed 302 Found in 15ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 10:00:23 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 10], ["votable_type", "Comment"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 10], ["votable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (6.1ms)
+  Rendered links/show.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 297ms (Views: 294.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 10:00:23 -0400
+
+
+Started PUT "/links/3/comments/10/dislike" for ::1 at 2015-08-13 10:00:25 -0400
+Processing by CommentsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"jtyWOkiDjDtjDn7rZqnqikz90WUvQNEqAWEEneylGr0COxpf4Ec2+1MhlJt/GmEHbduzx2qkKqZp53sGVaeFHA==", "link_id"=>"3", "id"=>"10"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."voter_id" = $3 AND "votes"."voter_type" = $4 AND "votes"."vote_scope" IS NULL  [["votable_id", 10], ["votable_type", "Comment"], ["voter_id", 2], ["voter_type", "User"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "votes" ("votable_id", "votable_type", "voter_id", "voter_type", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["votable_id", 10], ["votable_type", "Comment"], ["voter_id", 2], ["voter_type", "User"], ["vote_flag", "f"], ["vote_weight", 1], ["created_at", "2015-08-13 14:00:25.951921"], ["updated_at", "2015-08-13 14:00:25.951921"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/links/3
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/links/3" for ::1 at 2015-08-13 10:00:25 -0400
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."link_id" = $1[0m  [["link_id", 3]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."link_id" = $1  [["link_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 't' AND "votes"."vote_scope" IS NULL  [["votable_id", 10], ["votable_type", "Comment"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = 'f' AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 10], ["votable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (5.9ms)
+  Rendered links/show.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+Completed 200 OK in 265ms (Views: 261.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application-d5a178b33b80cb05e4b2873908a1e494.css?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap.min-484001edd3aaff13a1432b245414aaab.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap.min-d5180c4cffcca11775f4c4899be5b327.css?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/links-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/affix-4aa497ad1a679d7fa3de7aa10db2c248.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap-sprockets" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/alert-f0634df255bb1dc37f98c8be82434bec.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/button-1189204cf501fc7ddbe0384f5c7a3e04.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/carousel-65843039ab1c8b32832fda680448146a.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/collapse-4d358a4cbe9ca0a9cc3e124610787f88.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/dropdown-a234ed5390532f267df4f5a13236de95.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/tab-54d92c1012635a68526fcf2590679f4a.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/transition-8cd2695d7ee2b30315b7e024422eb427.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy-5e0c86e7fbc3752c3898df3c690e52fb.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/modal-b75feab289989a62ead5720c2b655fca.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/tooltip-5a9f4a24a67c380028b0164a546de5f4.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap/popover-9666a38e5d68a25bd4e839bee36f5d30.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/bootstrap-sprockets-3ca152e549e0b8086e1891275d70a987.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/core-f6c29219d44f4267c6c5f748cb73851a.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker-28441b2cd45f0545c8a439f40b98d784.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/widget-406fc24d615dd4370e049e85fb5f549d.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/button-a8037a4250da171316b7e7521b0d9d0b.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/mouse-504ef967eca0eb03967e3c9751c36d17.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/draggable-d158b51e489137b213fd1eaa96a9b92a.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/position-65ef6bd55aa64766623cc74b5d7d353d.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/resizable-aa565fd6aa9f42700d8c54b318c0c1c8.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/dialog-ee62065c80cb02fe6e91bf5811c59c91.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/sortable-fe96bfa9ff14377c0dc83b42d0f191e4.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/jquery-ui/tabs-7d723642f0cea4ad8b4be12b7af40214.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/base-404cff38e51d44cfd48b2bb7ec8a119f.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions-5706928449a7d192adcb4c959b623cf6.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler-71efe70af420ba0aef07b4e19fc2fc06.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu-0d4c387b749f3fc1d71179e523ab4e49.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/flash-a3dc1386603709c2a6501741817b1ca8.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many-64f8975fc252419139c3a62d16c53777.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog-400dfa6502091f82a5e3941b8a771c46.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/per_page-239488a1a0b13f3cda3dddf002b6ed21.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/popover-4659964ef0ff6b1465b40769d440f87a.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler-18530342f84893188506c0a48a10be15.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui-5963f9f0bd7887f07217b87c96e27f88.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-22727936bd5e807603d51c2a59b45b7d.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin/application-05696a26e5d54a1514c12845c4392189.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/active_admin-582c705223b6cd57525db0105ddd5028.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/home-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/links-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400
+
+
+Started GET "/assets/application-9825e6e194cf8a16308a6d966233f506.js?body=1" for ::1 at 2015-08-13 10:00:26 -0400

@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   root to: 'links#index'
 
   resources :links do
-    resources :comments
+    resources :comments do
+      member do
+        put 'like', to: 'comments#upvote'
+        put 'dislike', to: 'comments#downvote'
+      end
+    end
     member do
       put 'like', to: 'links#upvote'
       put 'dislike', to: 'links#downvote'
