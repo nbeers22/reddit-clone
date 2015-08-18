@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :replies
   resources :comments
   resources :links
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -26,7 +27,10 @@ Rails.application.routes.draw do
         put 'like', to: 'comments#upvote'
         put 'dislike', to: 'comments#downvote'
       end
-      resources :replies
+      resources :replies do
+        put 'like', to: 'replies#upvote'
+        put 'dislike', to: 'replies#downvote'
+      end
     end
     member do
       put 'like', to: 'links#upvote'

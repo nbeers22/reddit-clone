@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813142631) do
+ActiveRecord::Schema.define(version: 20150818180605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,19 @@ ActiveRecord::Schema.define(version: 20150813142631) do
   add_index "links", ["cached_votes_up"], name: "index_links_on_cached_votes_up", using: :btree
   add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
+  create_table "replies", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "link_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "replies", ["comment_id"], name: "index_replies_on_comment_id", using: :btree
+  add_index "replies", ["link_id"], name: "index_replies_on_link_id", using: :btree
+  add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -116,4 +129,7 @@ ActiveRecord::Schema.define(version: 20150813142631) do
   add_foreign_key "comments", "links"
   add_foreign_key "comments", "users"
   add_foreign_key "links", "users"
+  add_foreign_key "replies", "comments"
+  add_foreign_key "replies", "links"
+  add_foreign_key "replies", "users"
 end

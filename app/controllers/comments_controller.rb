@@ -30,21 +30,21 @@ class CommentsController < InheritedResources::Base
 	end
 
 	def upvote
-	  @comment = Comment.find(params[:id])
-	  @comment.upvote_by current_user
-	  redirect_to :back
+		@comment = Comment.find(params[:id])
+		@comment.upvote_by current_user
+		redirect_to :back
 	end
 	 
 	def downvote
-	  @comment = Comment.find(params[:id])
-	  @comment.downvote_by current_user
-	  redirect_to :back
+	  	@comment = Comment.find(params[:id])
+	  	@comment.downvote_by current_user
+	  	redirect_to :back
 	end
 
     private
 
     def comment_params
-      params.require(:comment).permit(:body, :link_id, :user_id)
+        params.require(:comment).permit(:body, :link_id, :user_id)
     end
 end
 

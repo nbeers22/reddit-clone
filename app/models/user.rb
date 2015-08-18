@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
     has_many :links, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :replies, dependent: :destroy
 end

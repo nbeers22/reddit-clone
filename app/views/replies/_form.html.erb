@@ -1,0 +1,11 @@
+<%= simple_form_for([@link, @comment, Reply.new]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :body, label: false %>
+  </div>
+	<br>
+  <div class="form-actions">
+    <%= f.button :submit, "Submit" %>
+  </div>
+<% end %>
