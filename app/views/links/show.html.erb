@@ -20,13 +20,16 @@
   <%= @link.comments.count %> Comments
 </h3>
  
-<div id="comments">
+<div id="comments" class="col-sm-8">
   <%= render :partial => @link.comments %>
 </div>
-<%= simple_form_for [@link, Comment.new] do |f| %>
-  <div class="field col-xs-12 col-sm-6">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-  <br>
-  <%= f.submit "Add Comment", class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <%= simple_form_for [@link, Comment.new] do |f| %>
+    <div class="field col-xs-12 col-sm-6">
+      <%= f.text_area :body, class: "form-control" %>
+      <br>
+      <%= f.submit "Add Comment", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
