@@ -1,6 +1,6 @@
 class LinksController < InheritedResources::Base
 	before_filter :authenticate_user!, except: [:index, :show,:edit, :update, :destroy]
-	# before_action :authorized_user, only: [:edit, :update, :destroy]
+	before_action :authorized_user, only: [:edit, :update, :destroy]
 
 	def create
 		user = current_user
@@ -24,13 +24,13 @@ class LinksController < InheritedResources::Base
 
 	def update
 		@link = Link.find(params[:id])
-		@link.update_attributes(comment_params)
-		redirect_to @comment.link
+		@link.update_attributes(link_params)
+		redirect_to :root
 	end
 
 	def destroy
 		Link.find(params[:id]).destroy
-		redirect_to :back
+		redirect_to :root
 	end
 
 	def upvote

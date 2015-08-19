@@ -30,7 +30,7 @@
           <td><%= link_to 'View', link_path(link), class: 'btn btn-info' %></td>
           <% if link.user == current_user %>
             <td><%= link_to 'Edit', edit_link_path(link), class: 'btn btn-warning' %></td>
-            <td><%= button_to 'Delete', link, method: :delete, class: 'btn btn-danger',data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', link_path(link), method: :delete, class: 'btn btn-danger',data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
