@@ -1,5 +1,5 @@
 class CommentsController < InheritedResources::Base
-	before_filter :authenticate_user!, only: [:create]
+	before_filter :authenticate_user!, only: [:create,:edit,:destroy]
 
 	def create
 		@link = Link.find(params[:link_id])
@@ -10,12 +10,12 @@ class CommentsController < InheritedResources::Base
 			redirect_to @link
 		else
 			redirect_to :root
+			flash[:error] = "Something didn't work right."
 		end
 	end
 
 	def edit
 		@comment = Comment.find(params[:id])
-		@link = Link.find(params[:link_id])
 	end
 
 	def update

@@ -18,9 +18,10 @@
     <% end -%>
 
     <div class="actions">
-      <%= f.button :submit, :class => 'btn btn-success' %>
+      <%= f.button :submit, "Log In", :class => 'btn btn-success' %>
     </div>
   <% end %>
+  <br>
+  <p>Don't have an account? <%= link_to 'Sign up for an account here.', new_user_registration_path %></p>
 
-<!-- <%= render "devise/shared/links" %> -->
 </div>

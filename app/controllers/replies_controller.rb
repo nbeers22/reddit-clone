@@ -12,6 +12,7 @@ class RepliesController < InheritedResources::Base
 		@comment = Comment.find(params[:comment_id])
 		@reply = @comment.replies.create(reply_params)
 		@reply.user = current_user
+		@reply.link_id = @link.id
 		@reply.save
 		if @reply.save
 			redirect_to @link
@@ -21,7 +22,22 @@ class RepliesController < InheritedResources::Base
 	end
 
 	def index
-		@replies = Reply.all
+		@comment = Comment.find(params[:comment_id])
+		@replies = @comment.replies.all
+	end
+
+	def upvote
+		@comment = Comment.find(params[:comment_id])
+		@reply = Reply.find(params[:reply_id])
+		@reply.upvote_by current_user
+		redirect_to :back
+	end
+	 
+	def downvote
+	  	@comment = Comment.find(params[:comment_id])
+	  	@reply = Reply.find(params[:reply_id])
+	  	@reply.downvote_by current_user
+	  	redirect_to :back
 	end
 
     private

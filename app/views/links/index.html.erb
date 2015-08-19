@@ -1,13 +1,10 @@
 <% if current_user %>
-
-  <h1>Links</h1>
-
-  <%= render 'links' %>
-
-  <%= link_to 'New Link', new_link_path %>
+	<%= link_to new_link_path do %>
+	  <button class="btn btn-primary">+Add Link</button>
+    <% end %>
+    <%= render 'links' %>
 <% else %>
   <p>To submit a link, please <%= link_to 'Log in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></p>
-  <h1>Links</h1>
 
   <%= render 'links' %>
   

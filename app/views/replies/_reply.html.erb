@@ -1,0 +1,35 @@
+
+
+<%= div_for(reply) do %>
+  <% user_id = reply.user_id %>
+  <% the_user = User.find(user_id) %>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="btn-group">
+        <div class="btn-group">
+            <%= link_to link_comment_reply_like_path(@link,reply.comment_id, reply), method: :put, class: "btn btn-success btn-sm" do %>
+            
+            <span class="upvote"><%= reply.get_upvotes.size %></span>
+            
+          <% end %>
+          <%= link_to link_comment_reply_dislike_path(@link,reply.comment_id, reply), method: :put, class: "btn btn-danger btn-sm" do %>
+            <span class="upvote"><%= reply.get_downvotes.size %></span>
+            
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <p class="lead"><%= reply.body %></p>
+      <p><small><strong><%= time_ago_in_words(reply.created_at) %> ago</strong> by <%= the_user.first_name.titleize %> <%= the_user.last_name.titleize %></small>
+      <hr>
+    </div>
+ 
+    <div class="btn-group col-sm-3">
+      <% if reply.user == current_user -%>
+        <%= link_to 'Edit', edit_link_comment_reply_path(@link,reply.comment_id,reply), class: "btn btn-sm btn-warning"  %>
+        <%= link_to 'Delete', link_comment_reply_path(@link,reply.comment_id, reply), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
