@@ -28,7 +28,7 @@ class CommentsController < InheritedResources::Base
 		@link = Link.find(params[:link_id])
 		@comment = @link.comments.find(params[:id])
 		@comment.destroy
-		redirect_to comment.link
+		redirect_to @comment.link
 	end
 
 	def upvote

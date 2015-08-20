@@ -23,7 +23,7 @@
     <div class="btn-group col-sm-3">
       <% if comment.user == current_user -%>
         <%= link_to 'Edit', edit_link_comment_path(@link, comment), class: "btn btn-sm btn-warning"  %>
-        <%= link_to 'Delete', link_comment_path(@link,comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        <%= link_to 'Delete', link_comment_path(@link,comment), method: :delete, class: "btn btn-sm btn-danger" %>
       <% end %>
     </div>
     <div class="col-sm-10 col-sm-offset-2">

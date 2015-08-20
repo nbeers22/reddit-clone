@@ -25,7 +25,7 @@
       <div class="btn-group col-sm-3">
         <% if reply.user == current_user -%>
           <%= link_to 'Edit', edit_link_comment_reply_path(@link, @comment, reply), class: "btn btn-sm btn-warning"  %>
-          <%= link_to 'Delete', reply, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+          <%= link_to 'Delete', reply, method: :delete, class: "btn btn-sm btn-danger" %>
         <% end %>
       </div>
   <% end %>
