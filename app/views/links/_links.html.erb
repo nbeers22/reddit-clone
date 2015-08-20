@@ -21,9 +21,11 @@
           <%= display_description(Link.add_http(link.url)) %>
         </p>
         <div class="user-options">
-          <div class="btn-group pull-right">
-            <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-xs btn-warning' %><%= link_to 'Delete', link_path(link), method: :delete, class: 'btn btn-xs btn-danger' %>
-          </div>
+          <% if link.user == current_user %>
+            <div class="btn-group pull-right">
+              <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-xs btn-warning' %><%= link_to 'Delete', link_path(link), method: :delete, class: 'btn btn-xs btn-danger' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
