@@ -6,6 +6,17 @@
         <p class="text-center name"><%= link.user.first_name.titleize %> <%= link.user.last_name.titleize %></p>
         <p class="time"><%= time_ago_in_words(link.created_at) + " ago" %></p>
         <p class="comments"><a href="<%= link_path(link) %>">Comments: <%= link.comments.count %></p>
+        <div class="btn-group link-score">
+            <%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-sm" do %>
+            
+            <span class="upvote"><%= link.get_upvotes.size %></span>
+            
+          <% end %>
+          <%= link_to dislike_link_path(link), method: :put, class: "btn btn-danger btn-sm" do %>
+            <span class="upvote"><%= link.get_downvotes.size %></span>
+            
+          <% end %>
+        </div>
       </div>
       <div class="col-sm-10">
         <h3>
