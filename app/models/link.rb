@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
 
 	def self.add_http(link)
 		link.downcase!
-		if link.include?('http://')
+		if link.include?('http://') || link.include?('https://')
 			link
 		else
 			link = 'http://' + link

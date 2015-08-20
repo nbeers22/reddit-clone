@@ -25,7 +25,9 @@ class CommentsController < InheritedResources::Base
 	end
 
 	def destroy
-		comment = Comment.find(params[:id]).destroy
+		@link = Link.find(params[:link_id])
+		@comment = @link.comments.find(params[:id])
+		@comment.destroy
 		redirect_to comment.link
 	end
 
