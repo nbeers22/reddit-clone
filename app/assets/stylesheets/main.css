@@ -6,13 +6,6 @@ body {
 	padding: 0px 5px;
 }
 
-.post-wrap {
-	border: 1px solid #ccc;
-	background-color: #FFFFF5;
-	border-radius: 5px;
-	padding-top: 20px;
-}
-
 img.gravatar {
 	height: 25px;
 	width: 25px;
@@ -33,7 +26,7 @@ img.gravatar {
 	padding-left: 0;
 }
 .gravatar-in-post {
-	padding-left: 7px;
+	padding-left: 35px;
 	margin-bottom: 5px;
 }
 .name {
@@ -55,5 +48,28 @@ h3 {
 }
 
 .link-score {
-	padding-left: 15px;
+	padding-left: 45px;
+}
+
+.user-options {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.comment-bar {
+	border: 1px solid #ccc;
+	background-color: #FFFFF6;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 0;
+}
+
+.show-comments, .hide-comments, .comment-count {
+	color: white;
+	font-size: 10px;
+	background-color: black;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
 }

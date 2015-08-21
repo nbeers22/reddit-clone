@@ -3,7 +3,7 @@
     <hr>
     <div class="col-sm-2">
       <div class="btn-group">
-          <%= link_to like_link_comment_path(@link, comment), method: :put, class: "btn btn-success btn-sm" do %>
+          <%= link_to like_link_comment_path( @link,comment), method: :put, class: "btn btn-success btn-sm" do %>
           
           <span class="upvote"><%= comment.get_upvotes.size %></span>
           

@@ -1,11 +1,10 @@
 <% @links.each do |link| %>
-  <div class="row" style="margin-top:10px;">
+  <!-- <div class="row" style="margin-top:10px;"> -->
     <div class="col-sm-8 post-wrap">
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <%= gravatar_in_post(link.user) %>
         <p class="text-center name"><%= link.user.first_name.titleize %> <%= link.user.last_name.titleize %></p>
         <p class="time"><%= time_ago_in_words(link.created_at) + " ago" %></p>
-        <p class="comments"><a href="<%= link_path(link) %>">Comments: <%= link.comments.count %></p>
         <div class="btn-group link-score">
             <%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-sm" do %>
             
@@ -18,7 +17,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <h3>
           <a href="<%= Link.add_http(link.url) %>" target="_blank">
             <%= display_title(Link.add_http(link.url)) %>
@@ -40,8 +39,48 @@
         </div>
       </div>
     </div>
-    <!-- <div class="col-sm-4">
-      right column
-    </div> -->
-  </div>
+    <div class="col-sm-4">
+      
+    </div>
+    <% if link.comments.count > 0 %>
+      <div class="comment-bar col-sm-8">
+        <p class="pull-left comment-count">
+          Comments: <%= link.comments.count %>
+        </p>
+        <p class="pull-right show-comments">
+          Show Comments
+        </p>
+        <p class="pull-right hide hide-comments">
+          Hide Comments
+        </p>
+        
+        <div id="link-comments" style="clear:both;display:none;">
+          <% link.comments.each do |comment| %>
+            <div class="col-sm-3">
+              <%= gravatar_in_post(comment.user) %>
+              <p class="text-center name"><%= comment.user.first_name.titleize %> <%= comment.user.last_name.titleize %></p>
+              <p class="text-center"><%= time_ago_in_words(comment.created_at) %></p>
+              <div class="btn-group link-score">
+                  <%= link_to like_link_comment_path(link,comment), method: :put, class: "btn btn-success btn-sm" do %>
+                  
+                  <span class="upvote"><%= comment.get_upvotes.size %></span>
+                  
+                <% end %>
+                <%= link_to dislike_link_comment_path(link,comment), method: :put, class: "btn btn-danger btn-sm" do %>
+                  <span class="upvote"><%= comment.get_downvotes.size %></span>
+                  
+                <% end %>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <%= comment.body %>
+            </div>
+              <% comment.replies.each do |reply| %>
+                <%= reply.body %>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  <!-- </div> -->
 <% end %>

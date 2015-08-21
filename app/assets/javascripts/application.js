@@ -11,8 +11,74 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap.min
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('.show-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.hide-comments').removeClass('hide');
+		$('#link-comments').show('slow',function(){
+			//animation complete
+		})
+	});
+
+	$('.hide-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.show-comments').removeClass('hide');
+		$('#link-comments').hide('slow',function(){
+			//animation complete
+		});
+	});
+	console.log("hello");
+})
+
+$(document).on('page:change', function () {
+	$('.show-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.hide-comments').removeClass('hide');
+		$('#link-comments').animate({
+			display: 'block'
+		}, 1500, function(){
+
+		});
+	});
+
+	$('.hide-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.show-comments').removeClass('hide');
+		$('#link-comments').animate({
+			display: 'none'
+		}, 1500, function(){
+
+		});
+	});
+	console.log("hello");
+});
+
+$(document).on('page:load', function () {
+	$('.show-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.hide-comments').removeClass('hide');
+		$('#link-comments').animate({
+			display: 'block'
+		}, 1500, function(){
+
+		});
+	});
+
+	$('.hide-comments').on('click',function(){
+		$(this).addClass('hide');
+		$('.show-comments').removeClass('hide');
+		$('#link-comments').animate({
+			display: 'none'
+		}, 1500, function(){
+
+		});
+	});
+	console.log("hello");
+});
