@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20150818180605) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "activities", force: :cascade do |t|
+    t.text     "title"
+    t.text     "expense_type"
+    t.decimal  "amount"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "category"
+  end
+
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
+
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -126,6 +138,7 @@ ActiveRecord::Schema.define(version: 20150818180605) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "activities", "users"
   add_foreign_key "comments", "links"
   add_foreign_key "comments", "users"
   add_foreign_key "links", "users"
