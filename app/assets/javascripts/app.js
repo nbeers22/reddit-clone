@@ -5,9 +5,9 @@ $(document).ready(function(){
 
 var showComments = function(){ 
 	$('.show-comments,.comment-count').on('click',function(){
-		$('.show-comments').addClass('hide');
-		$('.hide-comments').removeClass('hide');
-		$('#link-comments').show('slow',function(){
+		$(this).parent().find('.show-comments').addClass('hide');
+		$(this).parent().find('.hide-comments').removeClass('hide');
+		$(this).parent().find('#link-comments').show('slow',function(){
 			//animation complete
 		})
 	});
@@ -15,9 +15,9 @@ var showComments = function(){
 
 var hideComments = function(){
 	$('.hide-comments').on('click',function(){
-		$('.hide-comments').addClass('hide');
-		$('.show-comments').removeClass('hide');
-		$('#link-comments').hide('slow',function(){
+		$(this).addClass('hide');
+		$(this).parent().find('.show-comments').removeClass('hide');
+		$(this).parent().find('#link-comments').hide('slow',function(){
 			//animation complete
 		});
 	});
